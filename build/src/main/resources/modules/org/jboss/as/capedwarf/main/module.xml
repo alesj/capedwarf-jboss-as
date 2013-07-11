@@ -38,14 +38,13 @@
         <module name="org.jboss.as.clustering.common"/>
         <module name="org.jboss.as.clustering.infinispan"/>
         <module name="org.jboss.as.clustering.jgroups"/>
-        <module name="org.jboss.as.clustering.singleton"/>
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.as.ee"/>
         <module name="org.jboss.as.jpa"/>
         <module name="org.jboss.as.jpa.spi"/>
         <module name="org.jboss.as.logging"/>
         <module name="org.jboss.as.naming"/>
-        <module name="org.jboss.as.web"/>
+        <module name="org.jboss.as.web-common"/>
         <module name="org.jboss.as.weld"/>
         <module name="org.jboss.as.threads"/>
         <module name="org.jboss.as.transactions"/>
@@ -68,5 +67,6 @@
         <module name="org.apache.httpcomponents"/>
         <module name="org.geotoolkit"/>
         <module name="com.google.guava"/>
+        <module name="io.undertow.servlet"/>
     </dependencies>
 </module>
