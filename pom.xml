@@ -72,6 +72,11 @@
         <version.org.codehaus.exec>1.2.1</version.org.codehaus.exec>
         <version.org.jboss.maven.transformer>1.0.0.Beta4</version.org.jboss.maven.transformer>
 
+        <!-- Tmp Undertow overload -->
+        <version.io.undertow>1.0.0.Beta5</version.io.undertow>
+        <version.io.undertow.jastow>1.0.0.Alpha3</version.io.undertow.jastow>
+        <version.org.jboss.web.jasper-jdt>7.0.3.Final</version.org.jboss.web.jasper-jdt>
+
         <version.org.datanucleus>3.1.2</version.org.datanucleus>
         <version.org.datanucleus.appengine>2.1.1</version.org.datanucleus.appengine>
         <version.org.datanucleus.cache>3.1.1</version.org.datanucleus.cache>
@@ -96,8 +101,8 @@
         <maven.compiler.target>1.7</maven.compiler.target>
 
         <!-- Release Info -->
-        <jboss.capedwarf.scm.url>https://github.com/capedwarf/capedwarf-shared</jboss.capedwarf.scm.url>
-        <jboss.capedwarf.scm.connection>git@github.com:capedwarf/capedwarf-shared.git</jboss.capedwarf.scm.connection>
+        <jboss.capedwarf.scm.url>https://github.com/capedwarf/capedwarf-jboss-as</jboss.capedwarf.scm.url>
+        <jboss.capedwarf.scm.connection>git@github.com:capedwarf/capedwarf-jboss-as.git</jboss.capedwarf.scm.connection>
     </properties>
 
     <modules>
@@ -185,13 +190,11 @@
                 <version>${version.jboss.wildfly}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ee</artifactId>
                 <version>${version.jboss.wildfly}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>org.wildfly</groupId>
@@ -204,7 +207,6 @@
                 <artifactId>wildfly-naming</artifactId>
                 <version>${version.jboss.wildfly}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>org.wildfly</groupId>
@@ -264,14 +266,12 @@
                 <scope>provided</scope>
             </dependency>
 
-
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
-
 
             <dependency>
                 <groupId>org.apache.lucene</groupId>
@@ -308,7 +308,6 @@
                 <artifactId>bcprov-jdk15on</artifactId>
                 <version>${version.org.bouncycastle}</version>
             </dependency>
-
 
             <!-- This dependency needs to be managed due to the dependency convergence enforcer rule -->
 
@@ -348,7 +347,6 @@
                 <version>${version.org.datanucleus.cache}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-search-engine</artifactId>
@@ -366,7 +364,6 @@
                 <artifactId>hibernate-search-infinispan</artifactId>
                 <version>${version.org.hibernate.search}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
@@ -413,7 +410,6 @@
                 <artifactId>smack</artifactId>
                 <version>${version.org.jivesoftware.smack}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>org.openid4java</groupId>
@@ -469,6 +465,41 @@
                 <version>${version.org.picketlink.consolidated.social}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-core</artifactId>
+                <version>${version.io.undertow}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-servlet</artifactId>
+                <version>${version.io.undertow}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-jsp</artifactId>
+                <version>${version.io.undertow}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.undertow.jastow</groupId>
+                <artifactId>jastow</artifactId>
+                <version>${version.io.undertow.jastow}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.web</groupId>
+                <artifactId>jasper-jdt</artifactId>
+                <version>${version.org.jboss.web.jasper-jdt}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-websockets-jsr</artifactId>
+                <version>${version.io.undertow}</version>
+            </dependency>
 
             <!-- CapeDwarf & GAE -->
 
