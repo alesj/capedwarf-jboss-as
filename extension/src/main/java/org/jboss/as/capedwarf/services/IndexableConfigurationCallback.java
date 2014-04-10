@@ -39,8 +39,6 @@ import org.jgroups.JChannel;
  * @author <a href="mailto:mluksa@redhat.com">Marko Luksa</a>
  */
 public abstract class IndexableConfigurationCallback extends AbstractConfigurationCallback {
-    private static final int INDEXING_CACHES = 6;
-
     protected final CacheConfig config;
     protected final String appId;
     protected final ClassLoader classLoader;
@@ -71,7 +69,7 @@ public abstract class IndexableConfigurationCallback extends AbstractConfigurati
         indexing.setProperty(JGroupsChannelProvider.CHANNEL_INJECT, channel.getValue());
         indexing.setProperty(JGroupsChannelProvider.CLASSLOADER, classLoader);
 
-        short muxId = (short) ((INDEXING_CACHES / 2) * generator.getValue().getMuxId(appId) * ci.getPrefix() + ci.getOffset());
+        short muxId = (short) ((CacheConfigs.INDEXING_CACHES / 2) * generator.getValue().getMuxId(appId) * ci.getPrefix() + ci.getOffset());
         indexing.setProperty(JGroupsChannelProvider.MUX_ID, muxId);
 
         // do we store as binary - e.g. Modules

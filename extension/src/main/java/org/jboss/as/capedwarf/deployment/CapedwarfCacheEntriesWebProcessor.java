@@ -50,6 +50,7 @@ public class CapedwarfCacheEntriesWebProcessor extends CapedwarfWebDeploymentUni
             addExactClass(cl, configs, CacheName.TASKS, "org.jboss.capedwarf.tasks.Task");
             addExactClass(cl, configs, CacheName.LOGS, "org.jboss.capedwarf.log.CapedwarfAppLogLine", "org.jboss.capedwarf.log.CapedwarfRequestLogs");
             addExactClass(cl, configs, CacheName.CHANNEL, "org.jboss.capedwarf.channel.manager.ChannelImpl", "org.jboss.capedwarf.channel.manager.Message");
+            addExactClass(cl, configs, CacheName.SCHEDULER, "org.jboss.capedwarf.cron.Trigger");
         } catch (Exception e) {
             throw new DeploymentUnitProcessingException(e);
         }

@@ -39,7 +39,8 @@ public enum CacheName {
     MEMCACHE,
     DIST,
     DATASTORE_VERSIONS,
-    CHANNEL;
+    CHANNEL,
+    SCHEDULER;
 
     public String getName() {
         return name().toLowerCase();

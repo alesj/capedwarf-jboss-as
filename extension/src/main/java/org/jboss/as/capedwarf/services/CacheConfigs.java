@@ -28,6 +28,8 @@ package org.jboss.as.capedwarf.services;
  * @author <a href="mailto:ales.justin@jboss.org">Ales Justin</a>
  */
 public class CacheConfigs {
+    static final int INDEXING_CACHES = 8; // must be even number
+
     private static class CacheConfigImpl implements CacheConfig {
         private CacheName cacheName;
         private CacheIndexing indexing;
@@ -69,12 +71,13 @@ public class CacheConfigs {
     }
 
     /**
-     * DEFAULT = 3 * 1 - 1 = 2
-     * SEARCH = 3 * (-1) + 1 = -2
-     * PS = 3 * (-1) - 0 = -3
-     * TASKS = 3 * 1 - 0 = 3
-     * LOGS = 3 * 1 - 2 = 1
-     * CHANNEL = 3 * (-1) + 2 = -1
+     * DEFAULT = 4 * 1 - 1 = 3
+     * SEARCH = 4 * (-1) + 1 = -3
+     * PS = 4 * (-1) - 0 = -4
+     * TASKS = 4 * 1 - 0 = 4
+     * LOGS = 4 * 1 - 2 = 2
+     * CHANNEL = 4 * (-1) + 2 = -2
+     * SCHEDULER = 4 * 1 - 3 = 1
      */
 
     public static CacheConfig createDefaultConfig() {
@@ -106,6 +109,12 @@ public class CacheConfigs {
     public static CacheConfig createChannelConfig() {
         CacheConfigImpl config = new CacheConfigImpl(CacheName.CHANNEL, -1);
         config.getIndexing().setOffset(2);
+        return config;
+    }
+
+    public static CacheConfig createSchedulerConfig() {
+        CacheConfigImpl config = new CacheConfigImpl(CacheName.SCHEDULER, 1);
+        config.getIndexing().setOffset(-3);
         return config;
     }
 
