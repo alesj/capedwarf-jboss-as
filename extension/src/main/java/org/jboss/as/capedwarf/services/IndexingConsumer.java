@@ -23,6 +23,7 @@
 package org.jboss.as.capedwarf.services;
 
 import java.util.List;
+
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -88,7 +89,7 @@ class IndexingConsumer implements MessageListener {
             }
 
             final SearchFactoryImplementor factory = (SearchFactoryImplementor) Search.getSearchManager(cache).getSearchFactory();
-            final IndexManager indexManager = factory.getAllIndexesManager().getIndexManager(indexName);
+            final IndexManager indexManager = factory.getIndexManagerHolder().getIndexManager(indexName);
             if (indexManager == null) {
                 log.warnf("Message received for undefined index: %s.", indexName);
                 return;

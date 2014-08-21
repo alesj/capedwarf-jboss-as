@@ -22,9 +22,9 @@
 
 package org.jboss.as.capedwarf.services;
 
-import org.hibernate.search.Environment;
-import org.hibernate.search.backend.impl.jgroups.JGroupsChannelProvider;
+import org.hibernate.search.backend.jgroups.impl.DispatchMessageSender;
 import org.hibernate.search.cfg.EntityMapping;
+import org.hibernate.search.cfg.Environment;
 import org.hibernate.search.cfg.SearchMapping;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.configuration.cache.IndexingConfigurationBuilder;
@@ -68,11 +68,11 @@ public abstract class IndexableConfigurationCallback extends AbstractConfigurati
         }
         indexing.setProperty(Environment.MODEL_MAPPING, mapping);
 
-        indexing.setProperty(JGroupsChannelProvider.CHANNEL_INJECT, channel.getValue());
-        indexing.setProperty(JGroupsChannelProvider.CLASSLOADER, classLoader);
+        indexing.setProperty(DispatchMessageSender.CHANNEL_INJECT, channel.getValue());
+        indexing.setProperty(DispatchMessageSender.CLASSLOADER, classLoader);
 
         short muxId = (short) ((INDEXING_CACHES / 2) * generator.getValue().getMuxId(appId) * ci.getPrefix() + ci.getOffset());
-        indexing.setProperty(JGroupsChannelProvider.MUX_ID, muxId);
+        indexing.setProperty(DispatchMessageSender.MUX_ID, muxId);
 
         // do we store as binary - e.g. Modules
         final StoreAsBinaryConfigurationBuilder storeAsBinaryConfigurationBuilder = builder.storeAsBinary();

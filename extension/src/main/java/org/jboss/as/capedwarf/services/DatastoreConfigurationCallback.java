@@ -34,6 +34,7 @@ import org.infinispan.configuration.cache.CacheMode;
 import org.infinispan.configuration.cache.Configuration;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.configuration.cache.IndexingConfigurationBuilder;
+import org.infinispan.query.backend.QueryInterceptor;
 import org.infinispan.query.backend.SearchWorkCreator;
 import org.infinispan.query.impl.ComponentRegistryUtils;
 import org.jboss.capedwarf.shared.compatibility.Compatibility;
@@ -118,7 +119,8 @@ public class DatastoreConfigurationCallback extends BasicConfigurationCallback {
     @Override
     public void start(Cache cache) {
         super.start(cache);
-        ComponentRegistryUtils.getQueryInterceptor(cache).setSearchWorkCreator(createSearchWorkCreator());
+        QueryInterceptor queryInterceptor = ComponentRegistryUtils.getQueryInterceptor(cache);
+        // TODO, FIXME queryInterceptor.setSearchWorkCreator(createSearchWorkCreator());
     }
 
     @SuppressWarnings("unchecked")
